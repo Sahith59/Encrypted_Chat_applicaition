@@ -1,0 +1,633 @@
+/* Noise Protocol Chat Application Styles - Enhanced Version */
+
+/* Main Layout */
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.sidebar {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    background-color: #1a1a2e;
+}
+
+.sidebar-header {
+    background-color: #16213e;
+    padding: 20px 10px !important;
+    border-bottom: 1px solid #2a2a4a;
+}
+
+.sidebar-header h3 {
+    margin-bottom: 5px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Chat Interface */
+.chat-messages {
+    height: 50vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 15px !important;
+    background-color: #f8f9fa;
+}
+
+.message {
+    max-width: 75%;
+    margin-bottom: 1rem;
+    position: relative;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.message.incoming {
+    align-self: flex-start;
+}
+
+.message.outgoing {
+    align-self: flex-end;
+}
+
+.message-bubble {
+    border-radius: 1.2rem;
+    padding: 0.75rem 1rem;
+    position: relative;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+}
+
+.message-bubble:hover {
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+.message.incoming .message-bubble {
+    background-color: #ffffff;
+    border-bottom-left-radius: 0.25rem;
+    border: 1px solid #e9ecef;
+}
+
+.message.outgoing .message-bubble {
+    background-color: #d4edda;
+    border-bottom-right-radius: 0.25rem;
+    border: 1px solid #c3e6cb;
+}
+
+.message-time {
+    font-size: 0.7rem;
+    color: #888;
+    margin-top: 0.25rem;
+    text-align: right;
+}
+
+.message-sender {
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+    color: #0d6efd;
+}
+
+/* Enhanced Room Header */
+.room-header {
+    background-color: #f0f7ff;
+    padding: 10px 15px !important;
+    border-bottom: 2px solid #e1effe;
+}
+
+#active-room {
+    color: #0d6efd;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+/* Room Members Panel */
+.room-members {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+    padding: 10px 15px !important;
+    margin-bottom: 10px;
+}
+
+.room-members .fw-bold {
+    color: #0d6efd;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+.room-members-list ul {
+    margin-left: 10px;
+}
+
+.room-members-list li {
+    padding: 3px 0;
+    transition: background-color 0.2s;
+    border-radius: 4px;
+    padding-left: 5px;
+}
+
+.room-members-list li:hover {
+    background-color: #e9ecef;
+}
+
+.room-members-list i {
+    color: #6c757d;
+    margin-right: 5px;
+}
+
+.room-members-list .text-primary {
+    color: #0d6efd !important;
+}
+
+/* Security Features */
+.encryption-banner {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    margin-bottom: 15px !important;
+}
+
+.encryption-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+    animation: pulse 2s infinite;
+}
+
+.encryption-indicator.secure {
+    background-color: #28a745;
+}
+
+.encryption-indicator.insecure {
+    background-color: #dc3545;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.4); }
+    70% { box-shadow: 0 0 0 6px rgba(40, 167, 69, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0); }
+}
+
+/* Animation for messages */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Improved System Messages */
+.system-message {
+    text-align: center;
+    margin: 0.7rem 0;
+    color: #6c757d;
+    font-style: italic;
+    background-color: #f8f9fa;
+    padding: 5px 10px;
+    border-radius: 15px;
+    border: 1px dashed #dee2e6;
+    display: inline-block;
+    align-self: center;
+    max-width: 80%;
+    animation: fadeIn 0.4s ease;
+}
+
+/* Message Input Area */
+.card-footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+    padding: 15px !important;
+}
+
+#message-input {
+    border-radius: 20px;
+    border: 1px solid #ced4da;
+    padding: 0.5rem 1rem;
+    transition: all 0.2s;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.075);
+}
+
+#message-input:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.btn-primary {
+    border-radius: 20px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Room List Modal Enhancements */
+.modal-content {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.modal-title {
+    font-weight: 600;
+    color: #0d6efd;
+}
+
+.modal-footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.room-item {
+    transition: all 0.2s ease;
+    border-radius: 8px;
+    margin-bottom: 5px;
+}
+
+.room-item:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.room-item .fw-bold {
+    color: #0d6efd;
+}
+
+/* Button Enhancements */
+.btn {
+    transition: all 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn-outline-primary:hover, .btn-outline-danger:hover {
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Alert Styling */
+.alert {
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+/* Card Enhancements */
+.card {
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border: none;
+    overflow: hidden;
+}
+
+.card-header {
+    background-color: #0d6efd;
+    color: white;
+    border-bottom: none;
+    padding: 0.75rem 1.25rem;
+}
+
+/* Technical Details Enhancements */
+.technical-details-panel .card {
+    border-radius: 8px;
+    border: none;
+}
+
+.technical-details-btn {
+    font-size: 0.75rem;
+    border-radius: 15px;
+    transition: all 0.2s;
+}
+
+.technical-details-btn:hover {
+    background-color: #e7f1ff;
+    border-color: #b8daff;
+}
+
+.technical-details-panel .card-body {
+    padding: 15px !important;
+}
+
+.mono {
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    background-color: #f8f9fa;
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid #eee;
+}
+
+/* Connection Form Enhancements */
+.connection-form {
+    background-color: #1e2732;
+    border-radius: 8px;
+    padding: 15px !important;
+    margin: 10px !important;
+}
+
+.connection-form h5 {
+    color: #f8f9fa;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.connection-form .form-label {
+    color: #adb5bd;
+}
+
+.connection-form .form-control {
+    background-color: #2c3e50;
+    border: 1px solid #4b5563;
+    color: #f8f9fa;
+}
+
+.connection-form .form-control:focus {
+    background-color: #2c3e50;
+    color: #f8f9fa;
+    border-color: #0d6efd;
+}
+
+.sidebar-features {
+    flex-grow: 1;
+}
+
+.sidebar-features h5 {
+    color: #f8f9fa;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.list-group-item {
+    transition: all 0.2s ease;
+}
+
+.list-group-item:hover {
+    background-color: #2c3e50 !important;
+    transform: translateY(-2px);
+}
+
+.list-group-item i {
+    transition: all 0.3s ease;
+}
+
+.list-group-item:hover i {
+    transform: scale(1.2);
+}
+
+.sidebar-footer {
+    background-color: #16213e;
+    padding: 15px !important;
+    border-top: 1px solid #2a2a4a;
+}
+
+/* Small Device Optimization */
+@media (max-width: 767px) {
+    .card-header {
+        padding: 0.5rem 1rem;
+    }
+    
+    .message {
+        max-width: 85%;
+    }
+    
+    .room-header {
+        padding: 8px 12px !important;
+    }
+    
+    .sidebar {
+        height: auto;
+        position: relative;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Badge Styling */
+.badge {
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 0.35em 0.65em;
+    border-radius: 10px;
+}
+
+.badge.bg-success {
+    background-color: #198754 !important;
+}
+
+/* Pending message animation */
+.message.pending .message-bubble {
+    position: relative;
+}
+
+.message.pending .message-bubble::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 12px;
+    height: 12px;
+    border: 2px solid #aaa;
+    border-radius: 50%;
+    border-left-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+/* File message styles */
+.file-message {
+    display: flex;
+    align-items: flex-start;
+    background-color: rgba(0,0,0,0.03);
+    padding: 0.8rem;
+    border-radius: 0.8rem;
+    margin-top: 0.8rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    transition: all 0.2s;
+}
+
+.file-message:hover {
+    background-color: rgba(0,0,0,0.05);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.file-icon {
+    font-size: 2.5rem;
+    margin-right: 1rem;
+    color: #0d6efd;
+}
+
+.file-info {
+    flex-grow: 1;
+}
+
+.file-name {
+    font-weight: bold;
+    word-break: break-all;
+    margin-bottom: 0.3rem;
+}
+
+.file-size {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+.file-preview {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.2s;
+}
+
+.file-preview:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+}
+
+.file-link {
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.file-link:hover {
+    transform: translateY(-1px);
+}
+
+/* Progress bar for file transfers */
+.file-progress {
+    height: 4px;
+    margin-top: 0.5rem;
+}
+
+/* Typing indicator */
+.typing-indicator {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+}
+
+.typing-dots {
+    display: flex;
+}
+
+.typing-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #bbb;
+    margin-right: 4px;
+    animation: typingAnimation 1.4s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typingAnimation {
+    0%, 60%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-5px); }
+}
+
+/* Technical details styling */
+.technical-details-panel {
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.technical-details-panel .card {
+    border-radius: 8px;
+}
+
+.encrypted-bytes {
+    background-color: #f8f9fa;
+    padding: 8px;
+    border-radius: 4px;
+    max-height: 60px;
+    overflow-y: auto;
+}
+
+.full-bytes {
+    background-color: #f8f9fa;
+    padding: 8px;
+    border-radius: 4px;
+    max-height: 150px;
+    overflow-y: auto;
+    word-break: break-all;
+}
+
+.fw-bold {
+    font-weight: bold;
+}
+
+.border-bottom {
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+}
+
+/* Improve the main technical details section */
+#technical-details {
+    border-radius: 0;
+    margin-top: 0;
+}
+
+#technical-details .card-header {
+    font-weight: bold;
+}
+
+#protocol-details .card,
+#security-properties .card {
+    height: 100%;
+}

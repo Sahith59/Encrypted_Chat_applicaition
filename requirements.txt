@@ -1,0 +1,15 @@
+# Core dependencies for Noise Protocol
+cryptography>=2.8
+flask>=2.0.0
+werkzeug>=2.0.0
+jsonschema>=3.2.0
+
+# For web UI
+flask-cors>=3.0.10
+
+# For testing
+pytest>=6.0.0
+pytest-cov>=2.10.0
+
+# Utility packages
+requests>=2.25.0
